@@ -44,6 +44,16 @@ def show_analytics(df):
     # Perform sentiment analysis on all the reviews
     df['Sentiment'] = df['Reviews'].apply(predict_sentiment)
 
+    # Get the count of reviews and positive/negative reviews
+    total_reviews = len(df)
+    positive_reviews = len(df[df['Sentiment'] == 'Positive review'])
+    negative_reviews = len(df[df['Sentiment'] == 'Negative review'])
+    
+    # Print the count of reviews and positive/negative reviews
+    st.write(f"Total number of reviews: {total_reviews}")
+    st.write(f"Number of positive reviews: {positive_reviews}")
+    st.write(f"Number of negative reviews: {negative_reviews}")
+
     # Plot the sentiment analysis results using matplotlib
     fig, ax = plt.subplots()
     ax.bar(df['Sentiment'].value_counts().index, df['Sentiment'].value_counts().values, color=['blue', 'orange'])
@@ -51,6 +61,7 @@ def show_analytics(df):
     ax.set_xlabel('Sentiment')
     ax.set_ylabel('Count')
     st.pyplot(fig)
+
 
 # Main function to run the app
 def main():
