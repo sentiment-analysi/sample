@@ -46,7 +46,7 @@ def show_analytics(df):
 
     # Plot the sentiment analysis results using matplotlib
     fig, ax = plt.subplots()
-    ax.bar(df['Sentiment'].value_counts().index, df['Sentiment'].value_counts().values, color=['green', 'red'])
+    ax.bar(df['Sentiment'].value_counts().index, df['Sentiment'].value_counts().values, color=['blue', 'orange'])
     ax.set_title('Sentiment Analysis Results')
     ax.set_xlabel('Sentiment')
     ax.set_ylabel('Count')
